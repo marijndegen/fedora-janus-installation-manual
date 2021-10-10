@@ -52,7 +52,7 @@ sh autogen.sh
 
 ./configure --help
 
-./configure --prefix=/opt/Janus --disable-data-channels --disable-rabbitmq --disable-mqtt
+./configure --prefix=/opt/janus --disable-data-channels --disable-rabbitmq --disable-mqtt
 
 **Install (can take a wile)**
 
@@ -66,11 +66,11 @@ cd ~
 
 **Verfify installation**
 
-ll /opt/Janus 
+ll /opt/janus 
 
 **Conclusion**
 
-Janus is now installed in /opt/Janus, the last command executed should give the following listing: 
+Janus is now installed in /opt/janus, the last command executed should give the following listing: 
 
 - bin
 - etc
@@ -240,7 +240,7 @@ server {
         ssl_prefer_server_ciphers on;
 
         # Load configuration files for the default server block.
-        include /etc/Nginx/default.d/*.conf;
+        include /etc/nginx/default.d/*.conf;
 
         error_page 404 /404.html;
             location = /40x.html {
@@ -261,7 +261,7 @@ server {
         listen       8089 ssl;
         listen       [::]:8089 ssl;
         server_name  _;
-        root /opt/Janus/share/Janus;
+        root /opt/janus/share/janus;
 
         ssl_certificate "/etc/letsencrypt/live/YOURDOMAIN.COM/fullchain.pem";
         ssl_certificate_key "/etc/letsencrypt/live/YOURDOMAIN.COM/privkey.pem";
@@ -285,11 +285,11 @@ server {
 
 **Test Nginx configuration**
 
-sudo Nginx -t /etc/Nginx/Nginx.conf
+sudo nginx -t /etc/nginx/nginx.conf
 
 **Restart Nginx**
 
-sudo systemctl restart Nginx
+sudo systemctl restart nginx
 
 **Conclusion**
 
@@ -305,16 +305,16 @@ Let's make Janus accessible by systemctl, for easy starting, stopping and enable
 
 **Create a service file and add the content**
 
-sudo vim /usr/lib/systemd/system/Janus.service
+sudo vim /usr/lib/systemd/system/janus.service
 
 ```
 [Unit]
 Description=Startup for Janus
 
 [Service]
-WorkingDirectory=/opt/Janus/
+WorkingDirectory=/opt/janus/
 Type=forking
-ExecStart=/opt/Janus/bin/Janus --daemon --log-file=/var/log/Janus.log
+ExecStart=/opt/janus/bin/janus --daemon --log-file=/var/log/janus.log
 KillMode=process
 
 [Install]
@@ -323,11 +323,11 @@ WantedBy=multi-user.target
 
 **Start Janus and make sure it stays started**
 
-sudo systemctl status Janus
+sudo systemctl status janus
 
-sudo systemctl start Janus
+sudo systemctl start janus
 
-sudo systemctl enable Janus
+sudo systemctl enable janus
 
 **Conclusion**
 
@@ -345,7 +345,7 @@ sudo vim ~/.bashrc
 **Add export rule to the end of the file**
 
 ```
-export PATH="/opt/Janus/bin/:$PATH"
+export PATH="/opt/janus/bin/:$PATH"
 ```
 
 **Refresh the path (so no reboot required)**
@@ -356,7 +356,7 @@ source ~/.bashrc
 
 That is it, you just installed Janus! Read the documentation of Janus, if any questions pop up regarding the installation process you just followed, please create an issue on my github page.  
 
-All configuration files are available at /opt/Janus/etc/Janus/ , you can read through them and adjust them for your ideal situation. The official Janus documentation is available at https://Janus.conf.meetecho.com/
+All configuration files are available at /opt/janus/etc/janus/ , you can read through them and adjust them for your ideal situation. The official Janus documentation is available at https://janus.conf.meetecho.com/
 
 ### Useful links
 
