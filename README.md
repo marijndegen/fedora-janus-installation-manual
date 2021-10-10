@@ -285,7 +285,7 @@ server {
 
 **Test Nginx configuration**
 
-sudo nginx -t /etc/nginx/nginx.conf
+sudo nginx -t -c /etc/nginx/nginx.conf
 
 **Restart Nginx**
 
