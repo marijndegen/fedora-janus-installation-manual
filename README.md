@@ -16,7 +16,7 @@ A fedora 34 server with 1 CPU core @ 1Ghz 2 GB RAM
 
 **Recommended requirments (20 to 40 active users)**
 
-A fedora 34 server with 2 CPU core @ 1Ghz 2 GB RAM
+A fedora 34 server with 2 CPU core @ 1Ghz 4 GB RAM
 
 ## 1. Software update, dependencies and tools
 
