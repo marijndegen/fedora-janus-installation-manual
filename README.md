@@ -267,7 +267,7 @@ server {
         ssl_certificate_key "/etc/letsencrypt/live/YOURDOMAIN.COM/privkey.pem";
         ssl_session_cache shared:SSL:1m;
         ssl_session_timeout  10m;
-        ssl_ciphers PROFILE=SYSTEM;o
+        ssl_ciphers PROFILE=SYSTEM;
         ssl_prefer_server_ciphers on;
 
 
