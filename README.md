@@ -20,7 +20,7 @@ A fedora 34 server with 2 CPU core @ 1Ghz 2 GB RAM
 
 ## 1. Software update, dependencies and tools
 
-**General software update **
+**General software update**
 
 sudo dnf update
 
@@ -84,13 +84,13 @@ Janus on it's own does not serve static files (just it's own backend), you need 
 
 **Install**
 
-sudo dnf install Nginx
+sudo dnf install nginx
 
-sudo systemctl start Nginx
+sudo systemctl start nginx
 
-sudo systemctl enable Nginx
+sudo systemctl enable nginx
 
-sudo systemctl status Nginx
+sudo systemctl status nginx
 
 **Conclusion**
 
@@ -150,7 +150,7 @@ sestatus
 
 You configured the firewall and selinux (or disabled it), you should now see the Nginx sample page when visiting the server IP adres.
 
-## 6. Install snap, certbot and recieve certificates(let’s encrypt)
+## 6. Install snap, certbot and recieve certificates (let’s encrypt)
 
 So, you don't want insecure videostream connections and most browsers are not allowing you, it is easier to configure certbot, nowadays security certificates are free anyway so make use of them.
 
@@ -180,7 +180,7 @@ The following command will ask you for your e-mail address, your domain name and
 
 **Run certbot**
 
-sudo certbot certonly --Nginx
+sudo certbot certonly --nginx
 
 **Output path's**
 
@@ -204,7 +204,7 @@ Nginx ships with just http on port 80 available to show you an example page, we 
 
 **Configure Nginx**
 
-sudo vim /etc/Nginx/Nginx.conf
+sudo vim /etc/nginx/nginx.conf
 
 **HTTP server block**
 
@@ -229,7 +229,7 @@ server {
         listen       [::]:443 ssl http2;
         server_name  _;
         index index.html;
-        root /opt/Janus/share/Janus/demos/;
+        root /opt/janus/share/janus/demos/;
         autoindex on;
 
         ssl_certificate "/etc/letsencrypt/live/YOURDOMAIN.COM/fullchain.pem";
