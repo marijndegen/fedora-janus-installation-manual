@@ -132,7 +132,7 @@ sudo semanage port -a -t http_port_t  -p tcp 8088
 
 sudo semanage port -a -t http_port_t  -p tcp 8089
 
-setsebool -P httpd_can_network_connect 1
+sudo setsebool -P httpd_can_network_connect 1
 
 sudo reboot
 
