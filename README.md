@@ -48,7 +48,7 @@ cd Janus-gateway
 
 sh autogen.sh
 
-**Configure **
+**Configure**
 
 ./configure --help
 
